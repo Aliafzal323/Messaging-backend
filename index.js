@@ -13,6 +13,9 @@ app.use(cors());
 
 var clients={};
 
+const routes=require('./routes');   
+app.use('/routes',routes);
+
 io.on("connection",(socket)=>{
     console.log("Connected");
     console.log(socket.id,"has joined");
@@ -57,3 +60,4 @@ app.route('/check').get((req,res)=>{
 server.listen(port,"0.0.0.0",()=>{
     console.log("Server Connected");
 });
+
